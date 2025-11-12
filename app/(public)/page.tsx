@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 import LandingSection from "./landing/landing"
@@ -99,17 +100,18 @@ export default function Home() {
             </div>
 
             <div className="lg:col-span-2 flex flex-col justify-end space-y-6 sm:space-y-8 mt-8 lg:mt-0">
-              <div className="space-y-4">
+              <Image src="/son.png" alt="Nguyễn Ngọc Sơn" width={500} height={500} />
+              {/* <div className="space-y-4">
                 <div className="text-sm text-muted-foreground font-mono">CURRENTLY</div>
                 <div className="space-y-2">
                   <div className="text-foreground">Frontend Developer</div>
                   <div className="text-muted-foreground">@ Hububble</div>
                   <div className="text-xs text-muted-foreground">2021 — Present</div>
                 </div>
-              </div>
+              </div> */}
 
               <div className="space-y-4">
-                <div className="text-sm text-muted-foreground font-mono">FOCUS</div>
+                <div className="text-sm text-muted-foreground font-mono">CHUYÊN MÔN</div>
                 <div className="flex flex-wrap gap-2">
                   {["DIỄN GIẢ", "React", "TypeScript", "HubSpot CMS", "Node.js"].map((skill) => (
                     <span
