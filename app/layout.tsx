@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Prompt } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "next-themes";
+import { Footer } from "@/components/footer";
+import Header from "@/components/header";
+
+  const prompt = Prompt({
+    variable: "--font-prompt",
+    subsets: ["latin"],
+    weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,9 +34,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${prompt.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <ThemeProvider attribute="class" defaultTheme="dark" forcedTheme="dark" enableSystem>
+        <Header />
         {children}
+        <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
